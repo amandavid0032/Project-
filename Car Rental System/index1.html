@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Car Rental Service
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="nav-item active" href="index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+
+        <a class="nav-item" href="login2.html"><i class="fa fa-fw fa-user"></i>Login</a>
+        <a class="nav-item" href="contact.html"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+        <a class="nav-item" href="Aboutus.html"><i class="fa fa-fw fa-info"></i>About </a>
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- car detail -->
+
+    <body>
+
+
+
+        <main role="main">
+
+            <section class="jumbotron text-center">
+                <div class="container">
+                    <h1 class="jumbotron-heading">WELCOME TO CAR WORLD</h1>
+                    <h2>That wonderful feeling – you start the engine and your adventure begins…</h2>
+                    <p class="lead text-muted">At rentalcars.com everything we do is about giving you the freedom to
+                        discover
+                        more. We’ll move mountains to find
+                        you the right rental car, and bring you a smooth, hassle-free experience from start to finish.
+                        Here you can
+                        find
+                        out more about how we work..</p>
+
+                </div>
+            </section>
+
+
+
+
+
+            <div class="album py-5 bg-light">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
+                                    src="data:image/jpeg;base64,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"
+                                    data-holder-rendered="true">
+                                <style>
+                                    #Audi {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Audi A8 has 1 Petrol Engine on offer. The Petrol engine is
+                                        2995 cc. It is
+                                        available with the Automatic transmission. Depending upon the variant and fuel
+                                        type the A8 has a
+                                        mileage of 11.7 kmpl.<span id="Audi1"></span> <span id="Audi"> The A8 is a 5
+                                            seater Sedan and has a
+                                            length of 5302mm, width of 1945mm and a
+                                            wheelbase of 3127mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+
+
+
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Audi2()" id="Audi3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Audi A8</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2zG1xhmC-qMpYufVXliaObJX3HfiAtZSatg&usqp=CAU"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Mercedes {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Mercedes-Benz E-Class has 2 Diesel Engine and 2 Petrol
+                                        Engine on offer. The
+                                        Diesel engine is 1950 cc and 2987 cc while the Petrol engine is 1991 cc and 3982
+                                        cc. It is available
+                                        with the Automatic<span id="Mercedes1"></span> <span id="Mercedes">
+                                            transmission. Depending upon the
+                                            variant and fuel type the E-Class has a mileage
+                                            of 10.98 to 18.0 kmpl. The E-Class is a 5 seater Sedan and has a length of
+                                            4988mm, width of 1907mm
+                                            and a wheelbase of 2939mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Mercedes2()" id="Mercedes3">Read more</button>
+                                        </div>
+                                        <small class="text-muted">Mercedes-Benz</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]" src="https://cdn.wallpapersafari.com/50/97/V1eYwR.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Lambo {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">As is the case with all the Lamborghinis, the Urus too shares
+                                        its name with a
+                                        bull. While the Urus looks rugged and a high rider, its coupé-style roofline,
+                                        frameless doors and
+                                        other bits are reminiscent <span id="Lambo1"></span> <span id="Lambo"> of the
+                                            brand’s sports cars.
+                                            It shares the MLB platform with other
+                                            high-end performance-oriented SUVs from
+                                            Volkswagen Group such as the Bentley Bentayga, Audi Q7, and
+                                            the Porsche Cayenne.
+                                            The Urus features a front-mounted 4.0-litre twin-turbocharged V8 engine that
+                                            puts
+                                            out 650PS of
+                                            max power and 850Nm of peak torque and is mated to an 8-speed automatic
+                                            transmission. It sprints
+                                            from 0-100kmph in merely 3.6 seconds and can hit a top speed of 305kmph
+                                            Less.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Lambo2()" id="Lambo3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Lamborghinis</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://www.supercars.net/blog/wp-content/uploads/2020/07/2020-Ferrari-F8-Spider-005-1600.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Ferrari {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Ferrari F8 Tributo has 1 Petrol Engine on offer. The Petrol
+                                        engine is 3902
+                                        cc. It is available with the Automatic transmission. The F8 Tributo is a 2
+                                        seater Coupe and has a
+                                        length of 4611,<span id="Ferrari1"></span><span id="Ferrari"> width of 1979 and
+                                            a wheelbase of
+                                            2650.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Ferrari2()" id="Ferrari3">Read more</button>
+
+                                        </div>
+                                        <small class="text-muted">Ferrari F8 Tributo</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://i.pinimg.com/originals/4b/80/ca/4b80ca04fa5500c7634cb5504a4c6212.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Rolls {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Rolls Royce Phantom has 1 Petrol Engine on offer. The
+                                        Petrol engine is 6749
+                                        cc. It is available with the Automatic transmission. Depending upon the variant
+                                        and fuel type the
+                                        Rolls Royce Phantom has<span id="Rolls1"></span><span id="Rolls"> a mileage of
+                                            9.8 kmpl. The
+                                            Rolls Royce Phantom is a 5 seater Sedan and has a
+                                            length of 5982mm, width of 2018mm and a wheelbase of 3772mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Rolls2()" id="Rolls3">Read
+                                                more</button>
+
+
+                                        </div>
+                                        <small class="text-muted">Rolls Royce </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Bentley/Flying-Spur/7776/1587104359393/front-left-side-47.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Bentley {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Bentley Flying Spur has 2 Petrol Engine on offer. The
+                                        Petrol engine is 3993
+                                        cc and 5950 cc. It is available with the Automatic transmission. Depending upon
+                                        the variant and fuel
+                                        type the Flying Spur<span id="Bentley1">...</span><span id="Bentley"> has a
+                                            mileage of 10.2 to 12.5
+                                            kmpl. The
+                                            Flying Spur is a 4 seater Sedan and has
+                                            a length of 5316mm, width of 2013 and a wheelbase of 3194mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Bentley2()" id="Bentley3">Read more</button>
+                                        </div>
+                                        <small class="text-muted">Bentley Flying spur</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://img.indianautosblog.com/2014/08/2016-BMW-X1-new-render.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Bmw {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The BMW X1 has 1 Diesel Engine and 1 Petrol Engine on offer.
+                                        The Diesel engine is
+                                        1998 cc while the Petrol engine is 1998 cc. It is available with the Automatic
+                                        transmission.
+                                        Depending upon the<span id="Bmw1">...</span><span id="Bmw"> variant and fuel
+                                            type the X1 has a
+                                            mileage of 19.62 kmpl. The X1 is a 5 seater
+                                            SUV and has a length of 4447mm, width of 2060mm and a wheelbase of 2670mm
+                                        </span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Bmw2()" id="Bmw3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">BMW X1 </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://www.wsupercars.com/wallpapers/Bugatti/2010-Bugatti-Veyron-16-4-Super-Sport-001-1080.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Bugatti {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Bugatti Veyron has 1 Petrol Engine on offer. The Petrol
+                                        engine is 7993 cc. It
+                                        is available with the transmission. Depending upon the variant and fuel type the
+                                        Veyron has a
+                                        mileage of 6.8 kmpl. <span id="Bugatti1">...</span><span id="Bugatti">The Veyron
+                                            is a 2 seater
+                                            Convertible
+                                            and has a length of 4462mm, width of
+                                            1998mm and a wheelbase of 2710mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Bugatti2()" id="Bugatti3">Read more</button>
+                                        </div>
+                                        <small class="text-muted">9 mins</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://images.financialexpress.com/2018/01/2018-Maserati-Levante-main-image.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Maserati {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Maserati Levante has 1 Diesel Engine and 1 Petrol Engine on
+                                        offer. The Diesel
+                                        engine is 2987 cc while the Petrol engine is 2979 cc. It is available with the
+                                        Automatic
+                                        transmission.<span id="Maserati1"></span><span id="Maserati"> Depending upon the
+                                            variant and
+                                            fuel
+                                            type the Levante
+                                            has a mileage of 12.0 kmpl. The Levante is a 5 seater SUV and has a length
+                                            of 5003mm, width of
+                                            2158mm and a wheelbase of 3004mm. </span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Maserati2()" id="Maserati3">Read more</button>
+                                        </div>
+                                        <small class="text-muted">Maserati Levante</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
+                                    src="https://www.wallpapertip.com/wmimgs/16-168231_fortuner-car-wallpaper-full-hd.jpg"
+                                    data-holder-rendered="true">
+                                <style>
+                                    #Fortuner {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Toyota Fortuner has 1 Diesel Engine and 1 Petrol Engine on
+                                        offer. The
+                                        Diesel engine is 2755 cc while the Petrol engine is 2694 cc. It is available
+                                        with the Manual and
+                                        Automatic transmission.<span id="Fortuner1"></span><span id="Fortuner">
+                                            Depending upon the
+                                            variant and fuel type the
+                                            Fortuner
+                                            has a mileage of
+                                            10.01 to 15.04 kmpl. The Fortuner is a 7 seater SUV and has a length of
+                                            4795mm, width of
+                                            1855mm
+                                            and a wheelbase of 2745</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Fortuner2()" id="Fortuner3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Fortuner</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://themepack.me/i/c/749x468/media/g/1603/range-rover-theme-zl15.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Land {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Land Rover Range Rover has 1 Diesel Engine and 1 Petrol
+                                        Engine on offer.
+                                        The Diesel engine is 2995 cc while the Petrol engine is 2995 cc. It is available
+                                        with the
+                                        Automatic transmission.<span id="Land1"></span><span id="Land">The Range Rover
+                                            is a 5 seater SUV and has a length of 5200 mm, width of
+                                            2220 mm and a wheelbase of 3120 mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Land2()" id="Land3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Range rover</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://static.autox.com/uploads/2019/02/2019-ford-endeavour-sand-dunes.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Ford {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Ford Endeavour has 1 Diesel Engine on offer. The Diesel
+                                        engine is 1996 cc .
+                                        It is available with the Automatic transmission. Depending upon the variant and
+                                        fuel type the
+                                        Endeavour has a mileage <span id="Ford1"></span> <span id="Ford">of 13.9
+                                            kmpl.The Endeavour is a 7
+                                            seater suv and has length of 4903mm,
+                                            width of 1869mm and a wheelbase of 2850mm.
+                                        </span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Ford2()" id="Ford3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Endeavour</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]" src="https://wallpaperaccess.com/full/3939234.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Mahindra {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Mahindra Thar has 1 Diesel Engine and 1 Petrol Engine on
+                                        offer. The Diesel
+                                        engine is 2184 cc while the Petrol engine is 1997 cc . It is available with the
+                                        Manual & Automatic
+                                        transmission.<span id="Mahindra1"></span><span id="Mahindra"> Depending upon the
+                                            variant and fuel
+                                            type the Thar has a mileage of . The Thar is a 4
+                                            seater suv and has length of 3985mm, width of 1855mm and a wheelbase of
+                                            2450mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Mahindra2()" id="Mahindra3">Read more</button>
+
+                                        </div>
+                                        <small class="text-muted">Mahindra Thar</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://images2.alphacoders.com/292/thumb-1920-29220.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Nissan {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Nissan GT-R has 1 Petrol Engine on offer. The Petrol engine
+                                        is 3798 cc . It
+                                        is available with the Automatic transmission. Depending upon the variant and
+                                        fuel type the GT-R has
+                                        a mileage of 9.0 kmpl.<span id="Nissan1"></span><span id="Nissan">The GT-R is a
+                                            4 seater coupe and
+                                            has length of 4710mm, width of 1895mm and a
+                                            wheelbase of 270MM </span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Nissan2()" id="Nissan3">Read
+                                                more</button>
+
+
+                                        </div>
+                                        <small class="text-muted">Nissan GT-R </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mini/Cooper-3-DOOR/5176/1593675759983/front-left-side-47.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Mini {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Mini Cooper 3 DOOR has 1 Petrol Engine on offer. The Petrol
+                                        engine is 1998 cc
+                                        . It is available with the Automatic transmission. Depending upon the variant
+                                        and fuel type the
+                                        Cooper <span id="Mini1">...</span><span id="Mini">3 DOOR has a mileage of 17.33
+                                            kmpl. The Cooper 3
+                                            DOOR is a 4 seater hatchback and has length
+                                            of 3850mm, width of 1727mm and a wheelbase of 2467mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Mini2()" id="Mini3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Mini cooper</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://imgd.aeplcdn.com/1056x594/n/5a9d7sa_1471626.jpg?q=85"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Verna {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Hyundai Verna has 1 Diesel Engine and 2 Petrol Engine on
+                                        offer. The Diesel
+                                        engine is 1493 cc while the Petrol engine is 1497 cc and 998 cc . It is
+                                        available with the Manual &
+                                        Automatic transmission. <span id="Verna1">...</span><span id="Verna">Depending
+                                            upon the variant
+                                            and fuel type the Verna has a mileage of 17.7 to
+                                            25.0 kmpl. The Verna is a 5 seater sedan and has length of 4440mm, width of
+                                            1729mm and a wheelbase
+                                            of 2600mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Verna2()" id="Verna3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Verna</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]"
+                                    src="https://img.indianautosblog.com/2020/07/07/skoda-octavia-rs-front-still-ebee.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Skoda {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Skoda Octavia has 1 Petrol Engine on offer. The Petrol
+                                        engine is 1968 cc . It
+                                        is available with the Automatic transmission. Depending upon the variant and
+                                        fuel type the Octavia
+                                        has a mileage of <span id="Skoda1">...</span><span id="Skoda">14.72 kmpl.The
+                                            Octavia is a 5
+                                            seater sedan and has length of 4670mm, width of
+                                            1814mm and a wheelbase of 2688mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="payment.html
+" class="btn btn-sm btn-outline-secondary" role="button" aria-disabled="true">Book</a>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Skoda2()" id="Skoda3">Read
+                                                more</button>
+                                        </div>
+                                        <small class="text-muted">Skoda Octavia</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"
+                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                                    alt="Thumbnail [100%x225]" src="https://wallpaperaccess.com/full/2614756.jpg"
+                                    data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                <style>
+                                    #Scorpio {
+                                        display: none;
+                                    }
+                                </style>
+                                <div class="card-body">
+                                    <p class="card-text">The Mahindra Scorpio has 1 Diesel Engine on offer. The Diesel
+                                        engine is 2179 cc .
+                                        It is available with the Manual transmission. Depending upon the variant and
+                                        fuel type the Scorpio
+                                        has a mileage<span id="Scorpio1"></span><span id="Scorpio"> of 16.36 kmpl.The
+                                            Scorpio is a 7
+                                            seater suv and has length of 4456mm, width of 1820mm
+                                            and a wheelbase of 2680mm.</span></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"></button>
+                                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="Scorpio2()" id="Scorpio3">Read more</button>
+
+                                        </div>
+                                        <small class="text-muted">Scorpio</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+
+
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <a class="nav-item " href="term.html"><i class="Term">Terms & Condition</i></a>
+
+            <!-- <a class="nav-item" href="help.html"><i class="Help">Help</i></a> -->
+
+            </div>
+        </nav>
+
+
+
+        <footer class="text-muted">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+
+
+
+
+                <div class="footer_sub_footer">
+                    <div class="sub_footer_legal">
+
+                        Rentalcars.com is a trading name of Booking.com Transport Limited which is a limited
+                        company registered in England and Wales (Number: 05179829) whose registered address is
+                        at 100 New Bridge Street, London, EC4V 6JA. VAT number: GB 855349007.
+                        ID: 3951A</p>
+                    </div>
+                    <p>Rentalcars.com is part of Booking Holdings Inc., the world leader in online travel &amp;
+                        related services.</p>
+                    <p>
+                        Booking.com Transport Limited (FCA Firm Reference No 777648) is an Appointed Representative
+                        of Cover Genius Limited, which is authorised and registered by the Financial Conduct
+                        Authority, Firm Reference No 750711.<br>
+                        Traveljigsaw Insurance Limited is incorporated in Malta and is authorised by the Malta
+                        Financial Services Authority to carry on the business of insurance in terms of the Insurance
+                        Business Act 1998. Company Registration Number: C82173 Registered Office, Development House,
+                        St Anne Street, Floriana, FRN 9010, Malta.</p>
+
+                    <h2>Responsive Section Counter</h2>
+                    <br>
+
+                    <div class="row">
+                        <div class="column">
+                            <div class="card">
+                                <p><i class="fa fa-user"></i></p>
+                                <h3>11+</h3>
+                                <p>Partners</p>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <p><i class="fa fa-check"></i></p>
+                                <h3>55+</h3>
+                                <p>Projects</p>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <p><i class="fa fa-smile-o"></i></p>
+                                <h3>100+</h3>
+                                <p>Happy Clients</p>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <p><i class="fa fa-coffee"></i></p>
+                                <h3>100+</h3>
+                                <p>Meetings</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Add font awesome icons -->
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-android"></a>
+                    <a href="#" class="fa fa-yahoo"></a>
+
+
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- js -->
+        <script src="script.js">
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>
