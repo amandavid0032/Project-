@@ -48,6 +48,7 @@ if (mysqli_num_rows($result) > 0) {
     $records = mysqli_query($conn, $sql_total) or die("Query Unsuccessful.");
     $totalRecords = mysqli_num_rows($records);
     $totalPages = ceil($totalRecords / $limit);
+    var_dump($totalPages);
     $output .= '<div id="paginationid"><center><nav aria-label="Page navigation example"><ul class="pagination">';
     for ($i = 1; $i <= $totalPages; $i++) {
         $class_name = ($i == $page) ? "active" : "";
