@@ -1,0 +1,76 @@
+<html>
+<head>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="modal" id="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    
+    <table class='table table-bordered table-dark'>
+        <!-- Table headers -->
+        <tr class='table-info'>
+            <th scope='col'>S.no</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Age</th>
+            <th scope='col'>Email-Id</th>
+            <th scope='col'>Phone-No</th>
+            <th scope='col'>Gender</th>
+            <th scope='col'>Image</th>
+            <th scope='col'>Action</th>
+        </tr>
+        
+        <!-- Table body -->
+        <tr>
+        {% if result is not empty %}
+            {% for row in result %}
+                <tr>
+                    <td>{{ sno }}</td>
+                    <td>{{ row['f_name'] }} {{ row['l_name'] }}</td>
+                    <td>{{ row['age'] }}</td>
+                    <td>{{ row['emailId'] }}</td>
+                    <td>{{ row['phone'] }}</td>
+                    <td>{{ row['gender'] }}</td>
+                    <td><img src='../uploads/{{ row['userimage'] }}' alt='User Image' width='50'></td>
+                    <td>
+                        <button type='button' class='btn btn-success' data-eid='{{ row['id'] }}'>Edit</button>
+                        <button type='button' class='btn btn-danger' data-id='{{ row['id'] }}'>Delete</button>
+                    </td>
+                </tr>
+                {% set sno = sno +  1 %}
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="8">
+                    <h2>No Records Found</h2>
+                </td>
+            </tr>
+        {% endif %}
+        </tr>
+    </table>
+<!-- Pagination controls -->
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if total_page > 0 %}
+            {% for page_num in 1..total_page %}
+            {% if searchValue != "" %}
+            <li class='Search-item {% if page_num == current_page %}active{% endif %}'>
+                <a class="page-link" href="?page={{ page_num }}&search={{ searchValue }}" id="{{ page_num }}">{{ page_num }}</a>
+            </li>
+        {% else %}
+            <li class='page-item {% if page_num == current_page %}active{% endif %}'>
+                <a class="page-link" href="?page={{ page_num }}" id="{{ page_num }}">{{ page_num }}</a>
+            </li>
+        {% endif %}
+        
+            {% endfor %}
+        {% else %}
+            <li class="page-item disabled"><span class="page-link">No Records Found</span></li>
+        {% endif %}
+    </ul>
+</nav>
+
+</body>
+</html>
