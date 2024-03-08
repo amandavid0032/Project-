@@ -3,18 +3,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="modal" id="modal" tabindex="-1">
-        <div class="modal-dialog">
+    <div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content"></div>
         </div>
     </div>
-    
     <table class='table table-bordered table-dark'>
-        <!-- Table headers -->
         <tr class='table-info'>
             <th scope='col'>S.no</th>
             <th scope='col'>Name</th>
-            <th scope='col'>Age</th>
             <th scope='col'>Email-Id</th>
             <th scope='col'>Phone-No</th>
             <th scope='col'>Gender</th>
@@ -29,14 +26,13 @@
                 <tr>
                     <td>{{ sno }}</td>
                     <td>{{ row['f_name'] }} {{ row['l_name'] }}</td>
-                    <td>{{ row['age'] }}</td>
-                    <td>{{ row['emailId'] }}</td>
+                    <td>{{ row['email'] }}</td>
                     <td>{{ row['phone'] }}</td>
                     <td>{{ row['gender'] }}</td>
-                    <td><img src='../uploads/{{ row['userimage'] }}' alt='User Image' width='50'></td>
+                    <td><img src='../../uploads/{{ row['image'] }}' alt='User Image' width='50'></td>
                     <td>
-                        <button type='button' class='btn btn-success' data-eid='{{ row['id'] }}'>Edit</button>
-                        <button type='button' class='btn btn-danger' data-id='{{ row['id'] }}'>Delete</button>
+                    <button type='button' class='btn btn-info' data-eid='{{ row['uid'] }}'>view</button>
+                    <button type='button' class='btn btn-danger' data-id='{{ row['uid'] }}'>Delete</button>
                     </td>
                 </tr>
                 {% set sno = sno +  1 %}

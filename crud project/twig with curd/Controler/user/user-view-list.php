@@ -1,10 +1,17 @@
 <?php
-require_once '../vendor/autoload.php';
-require_once '../model/main-db.php';
-$loader = new Twig\Loader\FilesystemLoader('../Template');
+require_once '../../vendor/autoload.php';
+require_once '../../model/main-db.php';
+$loader = new Twig\Loader\FilesystemLoader('../../Template/user');
 $twig = new Twig\Environment($loader);
 $database = new Database();
-$table = 'studentrecord';
+$database->loginSession();
+// if (isset($_SESSION['email'])) {
+//     var_dump($_SESSION);
+//     $loggedInUserId = $_SESSION['uid'];
+// }
+// var_dump($loggedInUserId);
+
+$table = 'user';
 $rows = '*';
 $limit = 5;
 $searchValue = isset($_POST['search']) ? $_POST['search'] : '';
@@ -15,12 +22,12 @@ if ($searchValue !== "") {
     $result = $database->search($table, $columns, $searchValue, $limit, $rows);
     $total_record = $database->count($table, $columns, $searchValue);
     $total_page = ceil($total_record / $limit);
-    echo $twig->render('user-view.twig', ['result' => $result, 'total_page' => $total_page, 'current_page' => $page, 'sno' => $sno, 'searchValue' => $searchValue]);
+    echo $twig->render('user-view-list.twig', ['result' => $result, 'total_page' => $total_page, 'current_page' => $page, 'sno' => $sno, 'searchValue' => $searchValue]);
 } else {
-    $result = $database->select($table, $rows, $limit, $page);
+    $result = $database->select($table, $rows, $limit, $page,null);
     $total_record = $database->count($table);
     $total_page = ceil($total_record / $limit);
-    echo $twig->render('user-view.twig', ['result' => $result, 'total_page' => $total_page, 'current_page' => $page, 'sno' => $sno]);
+    echo $twig->render('user-view-list.twig', ['result' => $result, 'total_page' => $total_page, 'current_page' => $page, 'sno' => $sno]);
 }
 
 // Delete
