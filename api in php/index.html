@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="model">
+        <div id="model-form">
+            <div id="close-btn">X</div>
+            <h2>Edit form</h2>
+            <label for="first-name">First name</label>
+            <input id="first-name" type="text"><br><br>
+            <label for="Last-name">Last name</label>
+            <input id="last-name" type="text"><br><br>
+            <label for="email">email</label>
+            <input id="email" type="text">
+            <label for="Phone">Phone no</label>
+            <input id="Phone" type="text">
+            <label for="Gender">Gender</label>
+            <input id="Gender" type="text">
+        </div>
+    </div>
+
+    <div id="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="load-table"></tbody>
+        </table>
+    </div>
+</body>
+
+</html>

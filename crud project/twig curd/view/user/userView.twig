@@ -1,0 +1,19 @@
+<html>
+    {% include 'header.html' %}
+    <h2>
+        Welcome 
+        {{ email }}
+    </h2>
+    <body>
+        <div id="table-data"></div>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="../../public/script/script.js"></script>
+        <link href="../../public/css/style.css" rel="stylesheet">
+        <script>
+    loadTable(1, function() {
+    showToast("Data load successfully","success");  
+    });
+    </script>
+    </body>
+</html>

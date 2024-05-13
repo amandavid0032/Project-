@@ -5,7 +5,7 @@ if (isset($_SESSION['email'])) {
     $id = $_SESSION['uid'];
     $query = "SELECT * FROM user WHERE `uid` = $id";
     $result = mysqli_query($conn, $query);
-    if ($result && mysqli_num_rows($result) > 0) {
+    if ($result && mysqli_num_rows($result) > 0) {  
         $user = mysqli_fetch_assoc($result);
         if ($user['isfiled'] == 0) {
             header("location:question.php");

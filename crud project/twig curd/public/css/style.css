@@ -1,0 +1,121 @@
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+/* login from page css */
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+
+/* Success toast */
+.bg-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Error toast */
+.bg-error {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+
+/* new code  */
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #888888;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+thead {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+.table.sortable thead .sorting {
+    position: relative;
+    cursor: pointer;
+    padding-right: 1.7em;
+}
+
+.table.sortable thead .sorting:before {
+    left: auto;
+    right: 1em;
+    content: "↑";
+    position: absolute;
+    bottom: 0.5em;
+    display: block;
+}
+
+.table.sortable thead .sorting.asc:before {
+    opacity: 1;
+}
+
+.table.sortable thead .sorting:after {
+    left: auto;
+    right: 0.5em;
+    content: "↓";
+    position: absolute;
+    bottom: 0.5em;
+    display: block;
+}
+
+.table.sortable thead .sorting.desc:after {
+    opacity: 1;
+}
+
+.pagination {
+    font-family: Verdana, sans-serif;
+    padding: 20px;
+    margin: 7px;
+    display: block;
+    text-align: center;
+}
+
+.pagination a {
+    margin: 2px;
+    padding: 4px 10px 4px 10px;
+    background-color: #f44336;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    transition: all .2s linear;
+}
+
+.pagination b {
+    margin: 2px;
+    padding: 7px 14px 7px 17px;
+    background-color: #009688;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    transition: all .2s linear;
+}
+
+.pagination a:hover,
+.pagination a:active {
+    background-color: #009688;
+    color: #fff;
+}

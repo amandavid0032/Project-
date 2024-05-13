@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>    
+</head>
+    <body>
+        <div class="modal" id="userData" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content"></div>
+            </div>
+        </div>
+        <div class="toast" role="alert" style="position: absolute; right: 80px; top: 30px; margin-right: 10px;" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header"></div>
+            <div class="toast-body"></div>
+        </div>
+        <div id="dataContainer">
+            <table class="table table-striped sortable">
+                <thead>
+                    <tr>
+                        <th scope="col" colorder="">
+                            Sno
+                        </th>
+                        <th scope="col" class="sorting" coltype="f_name" colorder="">
+                            Name
+                        </th>
+                        <th scope="col" class="sorting" coltype="email" colorder="">
+                            Email 
+                        </th>
+                        <th scope="col" coltype="phone">
+                            phone-No
+                        </th>
+                        <th scope="col"  coltype="Gender" colorder="">
+                            Gender
+                        </th>
+                        <th scope="col" coltype="action">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+            </th>
+        </tr>
+    </body>
+</html></thead><!-- Table body --><tr>
+{% if result is not empty %}
+    {% for row in result %}
+        <tr>
+            <td>
+                {{ sno }}
+            </td>
+            <td>
+                {{ row['f_name'] }}
+                {{ row['l_name'] }}
+            </td>
+            <td>
+                {{ row['email'] }}
+            </td>
+            <td>
+                {{ row['phone'] }}
+            </td>
+            <td>
+                {{ row['gender'] }}
+            </td>
+            <td>
+                <button type='button' class='btn btn-info' data-eid='{{ row['uid'] }}' >
+                    view
+                </button>
+                <button type='button' class='btn btn-danger' data-id='{{ row['uid'] }}'>
+                    Delete
+                </button>
+            </td>
+        </tr>
+        {% set sno = sno + 1 %}
+    {% endfor %}
+{% else %}
+    <tr>
+        <td colspan="8">
+            <h2>
+                No Records Found
+            </h2>
+        </td>
+    </tr>
+{% endif %}</tr></table><!-- Pagination controls --><div class="pagination">{{ paginationLinks | raw }}</div></div></body></html>
