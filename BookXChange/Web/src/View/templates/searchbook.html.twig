@@ -1,0 +1,60 @@
+<!-- search Area -->
+<section class="searchArea">
+  <div class="container">
+      <form class="" id="searchBookForm" method="GET" action="{{baseurl}}src/View/searchBookList.php">
+          <div class="row">
+              <div class="col-sm-6 col-md-3">
+                  <div class="mb-3">
+                      <input name="book_title" value="" type="text" class="form-control" id="keyword" placeholder="Book Title">
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-3">
+                  <div class="mb-3">
+                      <select name="book_cat" id="product_cat" class="form-control">
+                          <option value="">Book Category</option>
+                          {% set newArray = [] %}
+                          {% for book in genreAndAuthorList %}
+
+                          {% if book.genre not in newArray %}
+                          <option value="{{book.genre}}">{{book.genre}}</option>
+                          {% set newArray = newArray|merge([book.genre]) %}
+                          {% endif %}
+
+                          {% endfor %}
+                      </select>
+                      <i class="select-arrow fa fa-angle-down"></i>
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-3">
+                  <div class="mb-3">
+                      <select name="book_author" id="book_author" class="form-control">
+                          <option value="">Book Author</option>
+                          {% set newArray = [] %}
+                          {% for book in genreAndAuthorList %}
+
+                          {% if book.author not in newArray %}
+                          <option value="{{book.author}}">{{book.author}}</option>
+                          {% set newArray = newArray|merge([book.author]) %}
+                          {% endif %}
+
+                          {% endfor %}
+
+                      </select>
+                      <i class="select-arrow fa fa-angle-down"></i>
+                  </div>
+              </div>
+
+              <div class="col-sm-6 col-md-3">
+                  <div class="mb-3">
+                      <button type="submit" name="findBook" class="btn btn-primary btn-block">
+                          <i class="fa fa-search"></i>&nbsp;Find Book</button>
+                  </div>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</section>
+<!--book search area close-->

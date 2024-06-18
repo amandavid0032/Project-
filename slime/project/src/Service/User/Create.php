@@ -1,0 +1,51 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Service\User;
+
+use App\Entity\User;
+use App\Exception\User as UserException;
+
+final class Create extends Base
+{
+    /**
+     * @param array<string> $input
+     */
+    public function create(array $input): object
+    {
+        $data = $this->validateUserData($input);
+        /** @var User $user */
+        $user = $this->userRepository->create($data);
+        if (self::isRedisEnabled() === true) {
+            $this->saveInCache($user->getId(), $user->toJson());
+        }
+
+        return $user->toJson();
+    }
+
+    /**
+     * @param array<string> $input
+     */
+    private function validateUserData(array $input): User
+    {
+        $user = json_decode((string) json_encode($input), false);
+        if (! isset($user->name)) {
+            throw new UserException('The field "name" is required.', 400);
+        }
+        if (! isset($user->email)) {
+            throw new UserException('The field "email" is required.', 400);
+        }
+        if (! isset($user->password)) {
+            throw new UserException('The field "password" is required.', 400);
+        }
+        $myuser = new User();
+        $myuser->updateName(self::validateUserName($user->name));
+        $myuser->updateEmail(self::validateEmail($user->email));
+        $hash = password_hash($user->password, PASSWORD_BCRYPT);
+        $myuser->updatePassword($hash);
+        $this->userRepository->checkUserByEmail($user->email);
+
+        return $myuser;
+    }
+}

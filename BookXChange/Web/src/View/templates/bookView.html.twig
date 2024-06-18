@@ -1,0 +1,212 @@
+<link href="{{baseurl}}src/View/templates/css/bookview.css" rel="stylesheet">
+<!-- search Area -->
+<section class="searchArea">
+    <div class="container">
+        <form class="" method="get" action="">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="mb-3">
+                        <input name="s" value="" type="text" class="form-control" id="keyword" placeholder="Book Title">
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="mb-3">
+                        <select name="product_cat" id="product_cat" class="form-control">
+                            <option value="0">Book Category</option>
+                            <option class="level-0" value="drama">Drama</option>
+                            <option class="level-1" value="inspiration">&nbsp;&nbsp;&nbsp;Inspiration</option>
+                            <option class="level-1" value="love-story">&nbsp;&nbsp;&nbsp;Love Story</option>
+                            <option class="level-0" value="life-style">Life Style</option>
+                            <option class="level-1" value="business">&nbsp;&nbsp;&nbsp;Business</option>
+                            <option class="level-1" value="culture">&nbsp;&nbsp;&nbsp;Culture</option>
+                            <option class="level-0" value="science">Science</option>
+                        </select>
+                        <i class="select-arrow fa fa-angle-down"></i>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="mb-3">
+                        <select name="book_author" id="book_author" class="form-control">
+                            <option value="0">Book Author</option>
+                            <option class="level-0" value="atkia">Atkia</option>
+                            <option class="level-0" value="brian-owell">Brian O’Well</option>
+                            <option class="level-0" value="saifudin-a">Saifudin A.</option>
+                            <option class="level-0" value="sarfaraz">Sarfaraz</option>
+                        </select>
+                        <i class="select-arrow fa fa-angle-down"></i>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fa fa-search"></i>&nbsp;Find Book</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section>
+<!-- /search Area -->
+
+<section class="main-content grey-bg pt-5 pb-5">
+    <div class="container">
+        <div id="content" class="addBookWapper white-bg pt-5 pb-5" role="main">
+            <div class="titleBook">
+                {{bookdetail.book_name}}
+            </div>
+            <div class="bookAuthorArea">
+                <span>{{bookdetail.author}}</span>
+                <span><strong>ISBN:</strong> {{bookdetail.isbn}}</span>
+                {% if session == 0 %} 
+                <div class="float-end">
+                    <a href="{{baseurl}}src/View/signin.php" class="btn btn-primary btn-sm">Add to Fav.</a>
+                </div>
+                {% else %}
+                {% if bookFav == true %}
+                <div class="float-end">
+                    <a class="btn btn-primary btn-sm">Added to Fav.</a>
+                </div>
+                {% else %}
+                <form action="action.php" method="POST">
+                    <div class="float-end">
+                        <input type="text" value="{{bookdetail.id}}" name="book_id" hidden />
+                        <button type="submit" name="addfav" class="btn btn-primary btn-sm">Add to Fav.</button>
+                    </div>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+            <div class="starRatingArea">
+                <span class="starRating">
+                    {% set sval = bookdetail.rating %}
+                    {% for i in range(1,5) %}
+                    {% if i <= sval %} <i class="fa fa-star"></i>
+                        {% endif %}
+                        {% set dif = i - sval %}
+                        {% if (dif >= 0.1) and (dif <= 0.5) %} <i class="fa fa-star-half-o"></i>
+                            {% set sval = sval + dif %}
+                            {% endif %}
+                            {% if i > sval %}
+                            <i class="fa fa-star-o"></i>
+                            {% endif %}
+                            {% endfor %}
+                </span>
+                <span style="margin-left: 15px;">
+                    <a href="bookReviews.php?bookid={{bookdetail.id}}" style="color:#0088dd;">(
+                        {% set arraylen = allbookfeedback|length %}
+                        {% if arraylen == 0 %}
+                        {{0}}
+                        {% else %}
+                        {% for i in range(1,arraylen) %}
+                        {{i}}
+                        {% endfor %}
+                        {% endif %}
+                        )
+                    </a>
+                </span>
+            </div>
+            <div class="bookDesc">
+                {{bookdetail.description}}
+            </div>
+            <div class="bookCoverImages">
+                <div class="bookImg">
+                    <img src="../Upload/Books/{{bookdetail.image}}">
+                </div>
+            </div>
+            <!-- availBookUsers -->
+            <div class="availBookUsers">
+                <div class="row">
+                    {% for booklistisbn in bookListByIsbn %}
+                    <div class="col-md-6">
+                        <div class="userBookBox">
+                            <div class="userImg"><img src="../Upload/Books/{{booklistisbn.image}}"></div>
+                            <h3><a href="#">{{booklistisbn.owner_name}}</a></h3>
+                            <div class="addressUser">{{booklistisbn.owner_address}}</div>
+                            <div class="bookCondition"><strong>Condition: </strong>Good</div>
+                            <!--request button-->
+                            {% if session != null %}
+                            {% if booklistisbn.owner_id != session %}
+                            {% if booklistisbn.reqst_status is null %}
+                            {% set reqst = -1 %}
+                            {% else %}
+                            {% set reqst = booklistisbn.reqst_status %}
+                            {% endif %}
+
+                            {% if booklistisbn.book_status == 0 %}
+
+                            {% if reqst == -1 or reqst == 3 %}
+                            <div class="requestBtn"><a href="#" id="request{{booklistisbn.id}}"
+                                    onclick="bookrequest('{{ booklistisbn.id }}', '{{ booklistisbn.owner_id }}')"
+                                    class="btn btn-sm btn-primary">Send Request</a></div>
+                            {% else %}
+                            <div class="requestBtn"><a class="btn btn-sm btn-primary"
+                                    style="pointer-events:none">Requested</a>
+                            </div>
+                            {% endif %}
+
+                            {% elseif booklistisbn.book_status == 1 %}
+                            {% if reqst == 1 %}
+                            <div class="requestBtn"><a href="#" class="btn btn-sm btn-primary"
+                                    id="returnrequest{{booklistisbn.id}}"
+                                    onclick="bookreturnrequest('{{ booklistisbn.id }}', '{{ booklistisbn.owner_id }}')">Return</a>
+                            </div>
+                            {% else %}
+                            <div class="requestBtn"><a href="#" class="btn btn-sm btn-primary"
+                                    style="pointer-events:none">Not Available</a></div>
+                            {% endif %}
+                            {% elseif booklistisbn.book_status == 2 %}
+                            {% if reqst == 2 %}
+                            <div class="requestBtn"><a href="#" class="btn btn-sm btn-primary"
+                                    style="pointer-events:none">Return Requested</a></div>
+                            {% else %}
+                            <div class="requestBtn"><a href="#" class="btn btn-sm btn-primary"
+                                    style="pointer-events:none">Not Available</a></div>
+                            {% endif %}
+                            {% endif %}
+                            {% endif %}
+                            {% else %}
+                            <div class="requestBtn"><a href="{{baseurl}}src/View/signin.php"
+                                    class="btn btn-sm btn-primary">Send Request</a></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- /availBookUsers -->
+        </div>
+    </div>
+</section>
+
+<!--book rating and feedback-->
+<div id="book-rating-div">
+    <div>
+        <h2 class="ml-6"><b>_____Book Rating_____</b></h2>
+        <button id="book-rating-closer">x</button>
+        <form id="book-rating-form">
+            <div class="mb-4 mt-4">
+                <label for="rating" class="form-label">Rating&nbsp;<span class="required">*</span></label>
+                <input type="number" min="1" max="5" step="0.5" id="book_rating" name="book_rating"
+                    placeholder="Enter Your Rating 1 to 5" class="form-control inputGrey border-left-0 border-md">
+            </div>
+            <div class="mb-4 mt-4">
+                <label for="review" class="form-label">Review&nbsp;<span class="required"></span></label>
+                <input id="review" type="text" name="review" placeholder="Enter Your Review"
+                    class="form-control inputGrey border-left-0 border-md">
+            </div>
+            <!-- Submit Button -->
+            <div class="form-group col-lg-12 mx-auto mb-0 mt-5 text-center">
+                <button href="#" class="btn btn-primary btn-lg" type="submit" name="book_rating_submit"
+                    style="width: 220px;">
+                    <span class="font-weight-bold">Submit</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="{{baseurl}}src/View/templates/js/jquery.validate.min.js"></script>
+<script src="{{ baseurl }}src/View/templates/js/bookview.js"></script>

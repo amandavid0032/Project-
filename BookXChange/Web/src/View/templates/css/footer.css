@@ -1,0 +1,31 @@
+.All-category {
+    display: none;
+}
+
+.recent-scroll {
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.recent-one,
+.most-one,
+.search-one {
+    display: none;
+}
+
+#reset-password-form {
+    display: none;
+
+}
+
+.error {
+    color: red;
+}
+
+#otp-section {
+    min-height: 50vh;
+}
+.manual-error {
+    display: none;
+}

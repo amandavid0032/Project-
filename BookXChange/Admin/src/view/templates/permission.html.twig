@@ -1,0 +1,53 @@
+
+
+<div class="container my-3">
+<table class="table table-striped container">
+
+    <thead>
+        <tr>
+            <td>User type </td>
+            <td>User section </td>
+            <td>Book section </td>
+            <td>Request</td>
+            <td>General setting</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        
+    <form method="POST" action="setPermission.php">
+        <tr>
+            <td>User manager</td>
+            <td> <input type="checkbox" name="permission[]" value="user" {% if(uPermission.user_table) == 1 %} checked {% endif %}></td>
+            <td> <input type="checkbox" name="permission[]" value="book" {% if(uPermission.book_table) == 1 %} checked {% endif %}></td>
+            <td> <input type="checkbox" name="permission[]" value="rqst" {% if(uPermission.request) == 1 %} checked {% endif %}></td>
+            <td> <input type="checkbox" name="permission[]" value="setting" {% if(uPermission.settings) == 1 %} checked {% endif %}></td>
+            <td> <button type="submit" name="setPermissionUser" class="btn btn-primary" >Apply</button></td>
+        </tr>
+    </form>
+    <form method="POST" action="setPermission.php">
+                <tr>
+            <td>Book manager</td>
+            <td> <input type="checkbox" name="permission[]" value="user" {% if(bPermission.user_table) == 1 %} checked {% endif %}></td>
+            <td> <input type="checkbox" name="permission[]" value="book" {% if(bPermission.book_table) == 1 %} checked {% endif %}></td>
+            <td> <input type="checkbox" name="permission[]" value="rqst" {% if(bPermission.request) == 1 %} checked {% endif %}></td>
+            <td> <input type="checkbox" name="permission[]" value="setting" {% if(bPermission.settings) == 1 %} checked {% endif %}></td>
+            <td> <button type="submit" name="setPermissionBook" class="btn btn-primary" >Apply</button></td>
+        </tr>
+    </form>
+        
+    </tbody>
+
+</table>
+
+
+
+</div>
+            <script>
+            $(document).ready(function() {
+                
+                    $('#perm').addClass("active");
+            });
+        </script>
+</body>
+</html>

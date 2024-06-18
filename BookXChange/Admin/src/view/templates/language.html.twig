@@ -1,0 +1,31 @@
+    {# {% for lang in languages %}
+        <li>{{ lang.name|e }}</li>
+    {% endfor %} #}
+
+<div class="container my-3 ">
+    <h3 class="text-center">List of language</h3>
+    <div class="bg-info">
+        <table>
+            <tr>
+                {% for lang in languages %}
+                    {{ lang.name|e }},
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <hr>
+
+<form class="my-4" method="post" action="actions.php">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Add New language</label>
+        <input type="text" name="lang" class="form-control col-xs-4">
+        <input type="submit" class="btn btn-primary my-2" value="Submit" name="addLang">
+    </div>
+</form>
+</div>
+        <script>
+            $(document).ready(function() {
+                
+                    $('#lang').addClass("active");
+            });
+        </script>

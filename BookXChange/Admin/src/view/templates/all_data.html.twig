@@ -1,0 +1,53 @@
+
+
+   <div class="container bg-info my-2 col-md-6">
+   <h1 class="text-center">Overall Summary</h1>
+   <hr>
+        <table class="table">
+        <h3>User Details</h3>
+            <thead>
+                <tr>
+                
+                <th class="text-center" scope="col">Total</th>
+                <th class="text-center" scope="col">Active</th>
+                <th class="text-center" scope="col">Blocked</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                
+                <td class="text-center">{{ userData.total }}</td>
+                <td class="text-center">{{ userData.active }}</td>
+                <td class="text-center" class="text-center">{{ userData.blocked }}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+
+        <table class="table">
+        <h3>Book Details</h3>
+            <thead>
+                <tr>
+                
+                <th class="text-center" scope="col">Total</th>
+                <th class="text-center" scope="col">Active</th>
+                <th class="text-center" scope="col">Blocked</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                
+                <td class="text-center">{{ bookData.total }}</td>
+                <td class="text-center">{{ bookData.active }}</td>
+                <td class="text-center">{{ bookData.blocked }}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+   
+   </div>
+
+</body>
+
+</html>

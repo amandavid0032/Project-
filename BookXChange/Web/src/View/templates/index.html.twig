@@ -1,0 +1,183 @@
+{% include 'header.html.twig' %}
+<!-- slider -->
+<section class="slider-wrap">
+    <div class="fadeOut owl-carousel owl-theme">
+        <div class="item">
+            <img src="{{baseurl}}src/View/templates/assets/images/slider-01.jpg">
+            <div class="container">
+
+            </div>
+        </div>
+        <div class="item">
+            <img src="{{baseurl}}src/View/templates/assets/images/slider-02.jpg">
+            <div class="container">
+            </div>
+        </div>
+        <div class="item">
+            <img src="{{baseurl}}src/View/templates/assets/images/slider-03.jpg">
+            <div class="container">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /slider -->
+{% include 'searchbook.html.twig ' %}
+
+<!-- Recently Added -->
+<section class="recentlyBook section-padding">
+    <div class="container">
+        <div class="sectionHeading">Recently Added</div>
+        <div class="bookListing" >
+            <div id="recentlyAddedBook" class="owl-carousel owl-theme genreGroup">
+                {% for book in bookList %}
+                <div class="item">
+                    <div class="bookBox">
+                        <a href="src/View/bookview.php?bookid={{book.id}}">
+                            <div class="bookCoverImg">
+                                <img src="src/Upload/Books/{{book.image}}"  style="height:280px;" />
+                            </div>
+                            <div class="book-Short-Detail">
+                                <h2>{{book.book_name}}</h2>
+                                <div class="author-rating">
+                                    <span class="starRating">
+                                        {% set sval = book.rating %}
+                                        {% for i in range(1,5) %}
+                                        {% if i <= sval %} <i class="fa fa-star"></i>
+                                            {% endif %}
+                                            {% set dif = i - sval %}
+                                            {% if (dif >= 0.1) and (dif <= 0.5) %} <i class="fa fa-star-half-o"></i>
+                                                </i>
+                                                {% set sval = sval + dif %}
+
+                                                {% endif %}
+                                                {% if i > sval %}
+                                                <i class="fa fa-star-o"></i>
+                                                {% endif %}
+                                                {% endfor %}
+                                    </span>&nbsp;|&nbsp;{{ book.author }}
+                                </div>
+                                <div class="genresArea">
+                                    <strong>Genres</strong>&nbsp;{{book.ggenre}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- /Recently Added -->
+<!-- Most popular -->
+<section class="mostPopular section-padding">
+    <div class="container">
+        <div class="sectionHeading">Most Popular</div>
+        <div class="bookListing">
+            <div class="owl-carousel owl-theme genreGroup">
+                {% for book in mostPopularBook%}
+                <div class="item">
+                    <div class="bookBox">
+                        <a href="src/View/bookview.php?bookid={{ book.id }}">
+                            <div class="bookCoverImg">
+                                <img src="src/Upload/Books/{{book.image}}" style="height:280px;">
+                            </div>
+                            <div class="book-Short-Detail">
+                                <h2>{{book.book_name}}</h2>
+                                <div class="author-rating">
+                                    <span class="starRating">
+                                        {% set sval = book.rating %}
+                                        {% for i in range(1,5) %}
+                                        {% if i <= sval %} <i class="fa fa-star"></i>
+                                            {% endif %}
+                                            {% set dif = i - sval %}
+                                            {% if (dif >= 0.1) and (dif <= 0.5) %} <i class="fa fa-star-half-o"></i>
+                                                </i>
+                                                {% set sval = sval + dif %}
+                                                {% endif %}
+                                                {% if i > sval %}
+                                                <i class="fa fa-star-o"></i>
+                                                {% endif %}
+                                                {% endfor %}
+                                    </span>&nbsp;|&nbsp;{{ book.author }}
+                                </div>
+                                <div class="genresArea">
+                                    <strong>Genres</strong>&nbsp; {{book.ggenre}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Most popular -->
+<!-- Browse Library -->
+<section class="browseLibrary section-padding"
+    style="background: url('{{baseurl}}src/View/templates/assets/images/banner-01.jpg');">
+    <div class="container">
+        <h2>Browse Through Our Complete Library</h2>
+        <a href="#"> BROWSE COLLECTION</a>
+    </div>
+</section>
+<!-- Browse Library -->
+{% for genre in mostUniqueGenre %}
+<!--Fiction -->
+<section class="mostPopular section-padding All-category">
+    <div class="container">
+        <div class="sectionHeading">{{genre.ggenre}}</div>
+        <div class="bookListing">
+            <div class="owl-carousel owl-theme genreGroup">
+
+                {% for book in allBookList %}
+                {% if genre.genre == book.genre %}
+                <div class="item">
+                    <div class="bookBox">
+                        <a href="src/View/bookview.php?bookid={{ book.id }}">
+                            <div class="bookCoverImg">
+                                <img src="src/Upload/Books/{{book.image}}" style="height:280px;">
+                            </div>
+                            <div class="book-Short-Detail">
+                                <h2>{{book.book_name}}</h2>
+                                <div class="author-rating">
+                                    <span class="starRating">
+                                        {% set sval = book.rating %}
+                                        {% for i in range(1,5) %}
+                                        {% if i <= sval %} <i class="fa fa-star"></i>
+                                            {% endif %}
+                                            {% set dif = i - sval %}
+                                            {% if (dif >= 0.1) and (dif <= 0.5) %} <i class="fa fa-star-half-o"></i>
+                                                {% set sval = sval + dif %}
+
+                                                {% endif %}
+                                                {% if i > sval %}
+                                                <i class="fa fa-star-o"></i>
+                                                {% endif %}
+                                                {% endfor %}
+                                    </span>&nbsp;|&nbsp;{{ book.author }}
+                                </div>
+                                <div class="genresArea">
+                                    <strong>Genres</strong>&nbsp; {{book.ggenre}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+<div class="p-5 text-center">
+    <a class="btn loadBtn" id="loadMore">Load More</a>
+</div>
+{% include 'footer.html.twig' %}

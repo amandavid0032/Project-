@@ -1,0 +1,138 @@
+<link href="{{baseurl}}src/View/templates/css/addbook.css" rel="stylesheet">
+<section id="page-title" class="page-title">
+	<div class="container">
+		<h1>Add New Book</h1>
+		<ol class="breadcrumb-trail breadcrumb breadcrumbs">
+			<li><span><a class="home" href="dashboard.php">Home</a></span></li>
+			<li class="active"><span class="active">Add New Book</span></li>
+		</ol>
+	</div>
+</section>
+<section class="main-content grey-bg pt-5 pb-5">
+	<div class="container">
+		<div id="content" class="addBookWapper white-bg" role="main">
+			<h4 class="mb-3 pt-5 text-center">Add the book you want to share with others</h4>
+
+			<form action="action.php" id="addbook-form" class="loginForm" method="post" enctype="multipart/form-data">
+				<div class="mb-3">
+					<label for="bookname" class="form-label">Name&nbsp;<span class="required">*</span></label>
+					<input type="text" class="inputGrey form-control" name="book_name" id="bookname" value="">
+				</div>
+				<div class="mb-3">
+					<label for="bookname" class="form-label">Genre&nbsp;<span class="required">*</span></label>
+					<select class="inputGrey form-select" name="book_genre" id="bookgenre">
+						<option value="" selected="" disabled="">Book Genre</option>
+						{% for g in genre %}
+						<option value="{{g.id}}">{{g.genre}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="bookauthor" class="form-label">Author&nbsp;<span
+									class="required">*</span></label>
+							<input type="text" class="inputGrey form-control" name="book_author" id="bookauthor"
+								value="">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="bookpublisher" class="form-label">Publisher&nbsp;<span
+									class="required">*</span></label>
+							<input type="text" class="inputGrey form-control" name="book_publisher" id="bookpublisher"
+								value="">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="bookedition" class="form-label">Edition&nbsp;<span
+									class="required">*</span></label>
+							<input type="text" class="inputGrey form-control" name="book_edition" id="bookedition"
+								value="" style="appearance: auto;">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="mb-3 bookISBN">
+							<label for="bookISBN" class="form-label">ISBN&nbsp;<span class="required">*</span></label>
+							<input type="text" class="inputGrey form-control" name="book_isbn" id="book_isbn" value=""
+								style="appearance: auto;">
+							<div class="codeArea">
+								<img src="{{baseurl}}src/View/templates/assets/images/codeScan.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="booklanguage" class="form-label">Language&nbsp;<span
+									class="required">*</span></label>
+							<select class="inputGrey form-select"  name="book_language">
+								<option value="" selected="" disabled="">Book Language</option>
+								{% for l in language %}
+								<option value="{{l.id}}">{{l.name}}</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="mb-3">
+							<label for="bookcondition" class="form-label">Condition&nbsp;<span
+									class="required">*</span></label>
+							<select class="inputGrey form-select" name="bookcondition" id="bookcondition">
+								<option value="" selected="" disabled="">Book Condition</option>
+								<option value="2">Best</option>
+								<option value="1">Good</option>
+								<option value="0">Bad</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="bookname" class="form-label">Description</label>
+					<textarea class="form-control inputGrey" rows="4" id="bookdescription" name="book_des"></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="starRating" class="form-label">Rating</label>
+					<div class="">
+					<fieldset class="rate">
+						<input type="radio" id="rating10" onclick="starmark(this)" name="rating" value="5" /><label for="rating10" title="5 stars"></label>
+						<input type="radio" id="rating9" onclick="starmark(this)" name="rating" value="4.5" /><label class="half" for="rating9" title="4 1/2 stars"></label>
+						<input type="radio" id="rating8" onclick="starmark(this)" name="rating" value="4" /><label for="rating8" title="4 stars"></label>
+						<input type="radio" id="rating7" onclick="starmark(this)" name="rating" value="3.5" /><label class="half" for="rating7" title="3 1/2 stars"></label>
+						<input type="radio" id="rating6" onclick="starmark(this)" name="rating" value="3" /><label for="rating6" title="3 stars"></label>
+						<input type="radio" id="rating5" onclick="starmark(this)" name="rating" value="2.5" /><label class="half" for="rating5" title="2 1/2 stars"></label>
+						<input type="radio" id="rating4" onclick="starmark(this)" name="rating" value="2" /><label for="rating4" title="2 stars"></label>
+						<input type="radio" id="rating3" onclick="starmark(this)" name="rating" value="1.5" /><label class="half" for="rating3" title="1 1/2 stars"></label>
+						<input type="radio" id="rating2" onclick="starmark(this)" name="rating" value="1" /><label for="rating2" title="1 star"></label>
+						<input type="radio" id="rating1" onclick="starmark(this)" name="rating" value="0.5" /><label class="half" for="rating1" title="1/2 star"></label>
+					
+					</fieldset>
+					<input type="text" name="rating" id="rating" hidden>
+					</div>
+					
+				</div>
+				<div class="mb-3">
+					<label for="bookreview" class="form-label">Review</label>
+					<textarea class="form-control inputGrey" rows="4" id="bookreview" name="book_review"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="bookcover" class="form-label">Upload Book Cover</label>
+					<div class="custom-file">
+						<input class="form-control" type="file" name="book_image" id="bookcover"
+							style="max-width: 300px;">
+					</div>
+				</div>
+				<div class="mb-3 mt-5">
+					<button type="submit" class="btn btn-primary btn-block py-3" name="addbook"
+						style="width: 300px;">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+<script src="{{baseurl}}src/View/templates/js/jquery.validate.min.js"></script>
+<script src="{{ baseurl }}src/View/templates/js/addbook.js"></script>

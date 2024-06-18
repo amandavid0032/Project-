@@ -1,0 +1,54 @@
+{% include 'searchbook.html.twig ' %}
+<!-- Search list book -->
+<section class="recentlyBook section-padding" style="min-height:100vh;">
+    <div class="container">
+        <div class="sectionHeading">Search Book List</div>
+        <div class="bookListing">
+            <div class="row">
+                {% set arrlen = searchBookList|length %}
+                {% if arrlen == 0 %}
+                There is no such book record
+                {% endif %}
+                {% for book in searchBookList %}
+                <div class="col col-md-3 mb-3 search-one">
+                    <div class="bookBox">
+                        <a href="{{baseurl}}src/View/bookview.php?bookid={{book.id}}">
+                            <div class="bookCoverImg">
+                                <img src="{{baseurl}}src/Upload/Books/{{book.image}}" alt="{{book.book_name}}"
+                                    style="height:280px;" />
+                            </div>
+                            <div class="book-Short-Detail">
+                                <h2>{{book.book_name}}</h2>
+                                <div class="author-rating">
+                                    <span class="starRating">
+                                        {% set sval = book.rating %}
+                                        {% for i in range(1,5) %}
+                                        {% if i <= sval %} <i class="fa fa-star"></i>
+                                            {% endif %}
+                                            {% set dif = i - sval %}
+                                            {% if (dif >= 0.1) and (dif <= 0.5) %} <i class="fa fa-star-half-o"></i>
+                                                </i>
+                                                {% set sval = sval + dif %}
+
+                                                {% endif %}
+                                                {% if i > sval %}
+                                                <i class="fa fa-star-o"></i>
+                                                {% endif %}
+                                                {% endfor %}
+                                    </span>&nbsp;|&nbsp;{{ book.author }}
+                                </div>
+                                <div class="genresArea">
+                                    <strong>Genres</strong>&nbsp;{{book.genre}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<div class="p-5 text-center">
+    <a class="btn loadBtn" id="loadMoreSearch">Load More</a>
+</div>

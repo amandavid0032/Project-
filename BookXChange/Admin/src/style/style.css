@@ -1,0 +1,33 @@
+.error{
+    color: red;
+}
+
+.navbar a{
+    color:brown
+}
+
+.navbar .nav-item{
+    margin-left: 30px;
+}
+
+.navbar .nav-item .nav-link{
+    padding: 5px 0;
+    position: relative;
+}
+
+.navbar .nav-item .nav-link::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: blue;
+    transition: all 0.5s ease;
+    transform: scale(0);
+}
+
+.navbar .nav-item .nav-link.active::before,
+.navbar .nav-item .nav-link:hover::before{
+    transform: scale(1);
+}
