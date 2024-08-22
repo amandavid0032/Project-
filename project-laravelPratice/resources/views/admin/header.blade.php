@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {{-- <link href="../../public/css/style.css" rel="stylesheet"> --}}
+    <title>
+        Document
+    </title>
+</head>
+<nav>
+    <a href="../logout.php" class="btn btn-warning">
+        Logout
+    </a>
+    <div id="search" style="position: absolute; right: 80px; top: 5px; margin-right: 10px;">
+
+        <input type="text" id="searchInput" autocomplete="off">
+        <button class="btn btn-secondary" type="submit" id="searchButton">search</button>
+    </div>
+    <button class="btn btn-warning" id="resetButton"
+        style="position: absolute; right: 10px; top: 2px; margin-right: 10px;">
+        Reset
+    </button>
+
+    <a href="{{ route('studentrecord.create')}}" class="btn btn-warning" id="resetButton">add</a>
+
+</nav>
