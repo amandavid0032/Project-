@@ -1,0 +1,123 @@
+
+{# font awesome CDN for showing the stars #}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+{# loading Bootstrap #}
+<link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
+
+    <script src="../../js/jquery-3.6.0.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../DataTables/datatables.min.css"/>
+
+    <script type="text/javascript" src="../../DataTables/datatables.min.js"></script>
+
+<link rel="stylesheet" href="../../style/star.css">
+
+<div class="container my-4">
+<h2 class="text-center">{{ bookDetails.book_name }}</h2>
+<hr>
+{#
+<div class="row">
+    <div class="col-md-10">
+        <h3>Name : {{ bookDetails.book_name }}</h3>
+        <h3>Genre : {{ bookDetails.genre }}</h3>
+        <h3>Author : {{ bookDetails.author }}</h3>
+        <h3>Edition : {{ bookDetails.edition }}</h3>
+        <h3>Description : {{ bookDetails.description }}</h3>
+        <h3>Status : {{ bookDetails.status }}</h3>
+        <h3>Rating : {{ bookDetails.rating }}</h3>
+        <h3>Upload date : {{ upload_date }}</h3>
+    </div>
+    <div class="col-md-2">
+        <img src="" alt="book profile photo">
+    </div>
+
+    
+</div>
+#}
+
+<div class="card mb-3" style="max-width: 540px; class="text-center">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="../../img/book.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ bookDetails.book_name }}</h5>
+        <p class="card-text">Genre : {{ bookDetails.genre }}</p>
+        <p class="card-text">Author : {{ bookDetails.author }}</p>
+        <p class="card-text">Edition: {{ bookDetails.edition }}</p>
+        <p class="card-text">Description : {{ bookDetails.description }}</p>
+        <p class="card-text">Status : {{ bookDetails.status }}</p>
+        <p class="card-text">Rating :{{ bookDetails.rating }}</p>
+        <p class="card-text">Upload Date: {{ upload_date }}</p>
+        <p class="card-text">
+                            <div class="stars-outer">
+                            <div id="stars-inner"></div>
+                        </div>
+                        <span class="number-rating">{{ bookDetails.rating }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<h2>{{ bookDetails.book_name }}'s book history</h2>
+
+<table class="table table-striped container bg-info" id="bookDetails">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Requester Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Copies</th>
+                <th scope="col">Request Date</th>
+                <th scope="col">Borrowed Date</th>
+                <th scope="col">Return Date</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% set num = 1 %}
+
+            {% for data in bookHistory %}
+            <tr>
+                <th scope="row">{{ num }}</th>
+                <td>{{ data.book_name }}</td>
+                <td>{{ data.requester }}</td>
+                <td>{{ data.status }}</td>
+                <td>{{ data.reason }}</td>
+                <td>{{ data.rqst_copies }}</td>
+                <td>{{ data.rqst_date }}</td>
+                <td>{{ data.issued_date }}</td>
+                <td>{{ data.return_date }}</td>
+                
+                
+
+            </tr>
+            {% set num = num+1 %}
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+<script src="../../js/percentCal.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#bookDetails').DataTable();
+                percentCal({{ bookDetails.rating }});
+                $('#book').addClass("active");
+
+            });
+        </script>
+
+    
+</body>
+</html>

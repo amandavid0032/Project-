@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>oXole</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="{{baseurl}}src/View/templates/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--costum css-->
+  <link href="{{baseurl}}src/View/templates/assets/css/style.css" rel="stylesheet">
+  <!-- Owl Stylesheets -->
+  <link rel="stylesheet" href="{{baseurl}}src/View/templates/assets/owlcarousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="{{baseurl}}src/View/templates/assets/owlcarousel/assets/owl.theme.default.min.css">
+  <!--datatable-->
+  <link rel="stylesheet" type="text/css" href="{{baseurl}}src/View/templates/datatable/jquery.dataTables.min.css">
+  <!--awesome font-->
+  <script src="{{baseurl}}src/View/templates/js/awsfonts.js" crossorigin="anonymous"></script>
+  <!--For picker phone code-->
+  <link rel="stylesheet" href="{{baseurl}}src/View/templates/build/css/intlTelInput.css">
+  <!-- JQuery and form validation-->
+  <script src="{{baseurl}}src/View/templates/js/jquery-3.6.1.min.js"></script>
+  <script src="{{baseurl}}src/View/templates/js/jquery.validate.min.js"></script>
+ 
+  <script src="{{baseurl}}src/View/templates/assets/js/jquery.min.js"></script>
+  <script src="{{baseurl}}src/View/templates/assets/owlcarousel/owl.carousel.js"></script>
+  <script src="{{baseurl}}src/View/templates/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+  <!-- header -->
+  <header class="siteHeaderMain">
+    <div class="siteHeader">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-center">
+          <h1 class="site-brand pull-left d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+            <a class="navbar-brand" href="#">
+              <span class="logoText">OXole</span>
+            </a>
+          </h1>
+          <!-- Hamburger icon -->
+          <input class="side-menu" type="checkbox" id="side-menu" />
+          <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+          <!-- /Hamburger Icon -->
+          <div class="mainMenu pull-right">
+            <ul class="nav nav-pills menu">
+              <li class="nav-item"><a href="{{baseurl}}index.php" class="nav-link" aria-current="page">Home</a>
+              </li>
+
+              {% if session == null %}
+              <li class="nav-item"><a href="#" class="nav-link mynav">About</a></li>
+              <li class="nav-item"><a href="{{baseurl}}src/View/signin.php" class="nav-link"><i
+                    class="fa fa-lock"></i>&nbsp;&nbsp;Sign In</a></li>
+              {% endif %}
+              {% if session != null %}
+              <li class="nav-item"><a href="response.php" class="nav-link"><i class="fa fa-exchange"
+                    aria-hidden="true"></i>&nbsp;&nbsp;
+                  Request</a></li>
+              <li class="nav-item"><a href="addbook.php" class="nav-link"><i class="fa fa-plus"
+                    aria-hidden="true"></i>&nbsp;&nbsp;
+                  Add Book</a></li>
+              <li class="nav-item"><a href="profile.php" class="nav-link"><i class="fa fa-user-o"></i>&nbsp;&nbsp;
+                My Account</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- header -->

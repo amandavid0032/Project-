@@ -1,0 +1,60 @@
+<section class="main-content">
+    <div class="container">
+        <div class="row">
+            {% include 'slidebox.html.twig' %}
+
+            <div class="col-md-9">
+                <div class="accountRightSide ps-md-5 ps-lg-9">
+                    <h6>My Books</h6>
+                    <div class="accountInfoMain">
+                        <div class="table-responsive">
+                            <table id="mybooktable" class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="bookCover" style="width: 80px;" width="80">Book Cover</th>
+                                        <th>Book Title</th>
+                                        <th>Added Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="align-middle">
+                                    {% if personalBooks == null %}
+                                    <tr>
+                                        <td colspan="4" class="text-center">
+                                            There is no book present. Please add some books! <br><br>
+                                            <a href="addbook.php" class="btn btn-primary btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> Add New Book</a>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% for book in personalBooks %}
+                                    <tr>
+                                        <td>
+                                            <div class="bookCoverArea">
+                                                <img src="../Upload/Books/{{ book.image }}">
+                                            </div>
+                                        </td>
+                                        <td>{{ book.book_name }}</td>
+                                        <td>{{ book.upload_date|date("m/d/Y") }}</td>
+                                        <td>
+                                            <a href="bookView.php?bookid={{ book.id }}"
+                                                class="btn btn-primary btn-sm">View</a>
+                                            <a href="bookEdit.php?bookid={{book.id}}"
+                                                class="btn btn-success btn-sm">Edit</a>
+                                            <a onclick="bookdelete('{{book.id}}')"
+                                                class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script type="text/javascript" charset="utf8"
+    src="{{baseurl}}src/View/templates/datatable/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="{{baseurl}}src/View/templates/js/datatable.js"></script>

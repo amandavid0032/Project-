@@ -1,0 +1,31 @@
+    {# {% for lang in languages %}
+        <li>{{ lang.name|e }}</li>
+    {% endfor %} #}
+
+<div class="container my-3 ">
+<h3 class="text-center">List of Genre</h3>
+    <div class="bg-info">
+        <table>
+            <tr>
+                {% for genre in genres %}
+                    {{ genre.genre|e }},
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <hr>
+
+<form class="my-4" method="post" action="actions.php">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Add New Genre</label>
+        <input type="text" name="genre" class="form-control col-xs-4">
+        <input type="submit" class="btn btn-primary my-2" value="Submit" name="addGenre">
+    </div>
+</form>
+</div>
+        <script>
+            $(document).ready(function() {
+                
+                    $('#genre').addClass("active");
+            });
+        </script>

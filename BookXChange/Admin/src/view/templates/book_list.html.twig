@@ -1,0 +1,122 @@
+<script src="../js/jquery-3.6.0.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+
+
+<div class="container my-3">
+    <table id="book_table" class="table table-striped container">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Owner Name</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Edition</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th> 
+                </tr>
+            </thead>
+            <tbody> 
+            {% set num = 1 %}
+                {% for data in b_array %}
+                <tr id="tr{{ num }}">
+                    <th scope="row">{{ num }}</th>
+                    <td><a class="nav-link" href="profile/book_profile.php?id={{ data.id }}">{{ data.book_name }}</a></td>
+                    <td>{{ data.ownerName }}</td>
+                    <td>{{ data.genre }}</td>
+                    <td>{{ data.author }}</td>
+                    <td>{{ data.edition }}</td>
+                    <td>{{ data.description }}</td>
+                    <td>{{ data.status }}</td>
+                    <td>{{ data.rating }}</td>
+                    <td><img src="{{ data.image }}" alt="Image of book"></td>
+                    <td>
+                        <a class="btn btn-primary mx-1 btn-sm" href="javascript:void(0)" onclick="deleteBook('{{ data.id }}')">Deletee</a>
+
+                        <a href="javascript:void(0)" onclick="getBookDetails('{{ data.id }}')" class="btn btn-primary mx-1 btn-sm" >Edit</a>
+
+                        {% if data.status == "blocked" %}
+                            <a class="btn btn-primary mx-1 btn-sm" href="javascript:void(0)" onclick="unBlockBook('{{ data.id }}')">unBlock</a>
+                        {% else %}
+                            <a class="btn btn-primary mx-1 btn-sm" href="javascript:void(0)" onclick="blockBook('{{ data.id }}')">Block</a>
+
+                        {% endif %}
+
+                    </td>
+                    
+
+                </tr>
+                {% set num = num+1 %}
+                {% endfor %}
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Owner Name</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Edition</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" style="display:none;">Quantity</th>
+                    <th scope="col" style="display:none;">Image</th>
+                    <th scope="col" style="display:none;">Actions</th>
+                    
+                </tr>
+            </tfoot>
+        
+    </table>
+</div>
+<script src="../js/jqueryValidator.js"></script>
+<script src="../js/validation.js"></script>
+<link rel="stylesheet" href="../style/style.css">
+<script src="../js/jquery-3.6.0.js"></script>
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+        <script>
+           
+
+            $(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#book_table tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+    });
+ 
+    // DataTable
+    var table = $('#book_table').DataTable({
+        initComplete: function () {
+            // Apply the search
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+ 
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+    });
+});
+        </script>
+
+
+
+
+
+<style>
+    tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+      }
+</style>

@@ -1,0 +1,72 @@
+
+<script src="../js/jquery-3.6.0.js"></script>
+<link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css"/>
+<script type="text/javascript" src="../DataTables/datatables.min.js"></script>
+
+
+
+<div class="container my-3">
+
+
+
+    <table id="user_table" class="table table-striped container">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            {% set num = 1 %}
+                {% for data in u_array %}
+                <tr>
+                    <th scope="row">{{ num }}</th>
+                    <td><a class="nav-link" href="profile/user_profile.php?id={{ data.id }}">{{ data.user_name }}</a></td>
+                    <td>{{ data.mobile_no }}</td>
+                    <td>{{ data.address }}</td>
+                    <td>{{ data.email }}</td>
+                    <td>{{ data.rating }}</td>
+                    <td><img src="{{ data.image }}" alt="Image of user"></td>
+                    <td>
+                        <a class="btn btn-primary mx-1 btn-sm" href='actions.php?id={{ data.id }}&action=deleteUser' 
+                            onclick="return confirm('Are you sure want to delete this User');">Delete</a>
+
+                        <a href='userEditHandler.php?id={{ data.id }}&action=editUser' class="btn btn-primary btn-sm">Edit</a>
+
+                        {% if data.status == "blocked" %}
+                            <a class="btn btn-primary mx-1 btn-sm" href='actions.php?id={{ data.id }}&action=unBlockUser' 
+                                onclick="return confirm('Are you sure want to unBlock this User');">Unblock</a>
+                            {% else %}
+                            <a class="btn btn-primary mx-1 btn-sm" href='actions.php?id={{ data.id }}&action=blockUser' 
+                                onclick="return confirm('Are you sure want to Block this User');">Block</a>
+                        {% endif %}
+                    
+                    </td>
+                    
+
+                </tr>
+                {% set num = num+1 %}
+                {% endfor %}
+
+            </tbody>
+        </table>
+      
+        <script>
+            $(document).ready(function() {
+                $('#user_table').DataTable();
+                    $('#user').addClass("active");
+            });
+        </script>
+
+
+</div>
+
+</body>
+</html>
